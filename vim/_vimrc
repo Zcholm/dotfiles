@@ -1,0 +1,25 @@
+" rt-labs indentation rules:
+:set tabstop=3 shiftwidth=3 softtabstop=3 expandtab
+:set colorcolumn=80
+
+" Colorscheme
+:colorscheme gruvbox
+let g:gruvbox_contrast_dark = '(medium)'
+:set guifont=consolas:h10:b
+
+" Window settings
+:set number ruler
+
+" Syntax
+:syntax on
+
+" Trailing spaces:
+set list listchars=trail:@
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
+
+" ctags tags file:
+set tags=tags;/
+
+filetype plugin indent on
+
