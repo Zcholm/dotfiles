@@ -1,0 +1,14 @@
+# %HOME is users home folder
+# %REPO is this repos root.
+# $VIM is the vim installation folder
+
+# vim
+mklink %HOME\_vimrc %REPO\vim\_vimrc
+mklink /D %HOME\vimfiles %REPO\vim\vimfiles
+mklink %VIM\colors\gruvbox.vim %REPO\vim\colors\gruvbox.vim
+
+# git
+mklink %HOME\.gitconfig %REPO\git\.gitconfig
+mklink %HOME\.config\git %REPO\git\config_git
+
+
