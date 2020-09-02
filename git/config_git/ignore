@@ -1,6 +1,7 @@
 tags
 *.vim
 *.swp
+*.swo
 
 .settings
 *Debug\*
