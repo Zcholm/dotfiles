@@ -1,12 +1,13 @@
 [user]
 	name = rtlsiho
 	email = simon.holm@rt-labs.com
-[credential]
-	helper = wincred
-[core]
-	editor = 'C:\\Program Files (x86)\\Vim\\vim82\\gvim.exe' -f -i NONE
 [pull]
    rebase = true
 [alias]
+	amend-all = commit -a --amend --no-edit
    gerritpull = "!f() { git fetch origin \"$1\" && git rebase --onto FETCH_HEAD origin/master; }; f"
+[core]
+   excludesfile = ~/ignore
+   editor = vim -f
+
 

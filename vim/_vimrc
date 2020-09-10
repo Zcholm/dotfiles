@@ -1,27 +1,32 @@
 " rt-labs indentation rules:
 :set tabstop=3 shiftwidth=3 softtabstop=3 expandtab
-:set colorcolumn=80
 
 " Colorscheme
 :colorscheme gruvbox
-let g:gruvbox_contrast_dark = '(medium)'
-:set guifont=consolas:h10:b
+let g:gruvbox_contrast_dark= '(medium)'
+:set background=dark
+:set guifont=Consolas\ 12
 
 " Window settings
 :set number ruler
+:set colorcolumn=80
 
 " Syntax
 :syntax on
 
 " Trailing spaces:
-set list listchars=trail:@
+"set list listchars=trail:@
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
 
 " ctags tags file:
 set tags=tags;/
 
+" Enable filetype specific indentation. (Add e.g. py.vim for indentation for
+" .py files.)
 filetype plugin indent on
 
-
+" No italic on comments:
+:hi Comment gui=NONE
+":hi Comment term=NONE
 
