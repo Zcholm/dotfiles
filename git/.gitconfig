@@ -6,6 +6,9 @@
 [alias]
 	amend-all = commit -a --amend --no-edit
    gerritpull = "!f() { git fetch origin \"$1\" && git rebase --onto FETCH_HEAD origin/master; }; f"
+	shortlog = log --oneline
+	sl = log --oneline
+   graph = log --oneline --branches=* --graph origin/master~..
 [core]
    excludesfile = ~/ignore
    editor = vim -f
