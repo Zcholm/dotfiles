@@ -4,6 +4,7 @@ tags
 *.swo
 
 .settings
-*Debug\*
+*Debug*
+*Release*
 *__pycache__*
 
