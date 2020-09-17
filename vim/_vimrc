@@ -5,7 +5,7 @@
 :colorscheme gruvbox
 let g:gruvbox_contrast_dark= '(medium)'
 :set background=dark
-:set guifont=Consolas\ 12
+:set guifont=Consolas\ 11
 
 " Window settings
 :set number ruler
@@ -29,4 +29,9 @@ filetype plugin indent on
 " No italic on comments:
 :hi Comment gui=NONE
 ":hi Comment term=NONE
+
+" Save file using specified line endings:
+:command Savedos :w ++ff=dos
+:command Savemac :w ++ff=mac
+:command Saveunix :w ++ff=unix
 
