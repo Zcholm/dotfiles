@@ -14,11 +14,6 @@ let g:gruvbox_contrast_dark= '(medium)'
 " Syntax
 :syntax on
 
-" Trailing spaces:
-"set list listchars=trail:@
-:highlight ExtraWhitespace ctermbg=red guibg=red
-:match ExtraWhitespace /\s\+$/
-
 " ctags tags file:
 set tags=tags;/
 
@@ -34,4 +29,15 @@ filetype plugin indent on
 :command Savedos :w ++ff=dos
 :command Savemac :w ++ff=mac
 :command Saveunix :w ++ff=unix
+
+" Turn off wrap-around searches (makes recursive macros safer):
+:set nowrapscan
+
+" Terminal colors:
+":set termguicolors
+
+" Trailing spaces:
+"set list listchars=trail:@
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
 

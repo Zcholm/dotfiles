@@ -1,0 +1,59 @@
+keycode 66 = Mode_switch
+
+! Swedish to custom US layout for 60% keyboard with vim style navigation.
+! To change to the same layout from another "base" layout, just change the input parameters. Buttons are in order on the keyboard.
+
+!      Key:               key:            Shift+key:     Caps+key:         Shift+Caps+key:   AltGr+key:        Shift+AltGr+key:
+keysym grave            = Escape          asciitilde     grave             bar               dead_tilde        section
+keysym 1                = 1               exclam         F1
+keysym 2                = 2               at             F2
+keysym 3                = 3               numbersign     F3
+keysym 4                = 4               dollar         F4
+keysym 5                = 5               percent        F5
+keysym 6                = 6               asciicircum    F6
+keysym 7                = 7               ampersand      F7
+keysym 8                = 8               asterisk       F8
+keysym 9                = 9               parenleft      F9
+keysym 0                = 0               parenright     F10
+keysym minus            = minus           underscore     F11
+keysym equal            = equal           plus           F12
+
+keysym q                = q               Q
+keysym w                = w               W
+keysym e                = e               E              eacute            Eacute            EuroSign
+keysym r                = r               R
+keysym t                = t               T
+keysym y                = y               Y              Home
+keysym u                = u               U              Prior
+keysym i                = i               I              Next
+keysym o                = o               O              End
+keysym p                = p               P
+keysym bracketleft      = bracketleft     braceleft      aring             Aring             dead_abovering
+keysym bracketright     = bracketright    braceright     Delete            Delete            dead_diaeresis    asciicircum
+
+keysym a                = a               A
+keysym s                = s               S
+keysym d                = d               D
+keysym f                = f               F
+keysym g                = g               G
+keysym h                = h               H              Left              NoSymbol          Home
+keysym j                = j               J              Down              NoSymbol          Next
+keysym k                = k               K              Up                NoSymbol          Prior
+keysym l                = l               L              Right             NoSymbol          End
+keysym semicolon        = semicolon       colon          odiaeresis        Odiaeresis
+keysym apostrophe       = apostrophe      quotedbl       adiaeresis        Adiaeresis        dead_acute        dead_diaeresis
+keysym backslash        = backslash       bar            asterisk          NoSymbol
+
+keysym z                = z               Z
+keysym x                = x               X
+keysym c                = c               C
+keysym v                = v               V
+keysym b                = b               B
+keysym n                = n               N
+keysym m                = m               M
+keysym comma            = comma           less
+keysym period           = period          greater
+keysym slash            = slash           question
+
+keysym space            = space           space          Return            Return            Return
+
