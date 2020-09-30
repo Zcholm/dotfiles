@@ -1,38 +1,37 @@
+! Custom US layout for 60% keyboard with vim style navigation.
+! ©Simon Holm 2020
 keycode 66 = Mode_switch
-
-! Swedish to custom US layout for 60% keyboard with vim style navigation.
-! To change to the same layout from another "base" layout, just change the input parameters. Buttons are in order on the keyboard.
 
 !      Key:               key:            Shift+key:     Caps+key:         Shift+Caps+key:   AltGr+key:        Shift+AltGr+key:
 keysym grave            = Escape          asciitilde     grave             bar               dead_tilde        section
-keysym 1                = 1               exclam         F1
-keysym 2                = 2               at             F2
-keysym 3                = 3               numbersign     F3
-keysym 4                = 4               dollar         F4
-keysym 5                = 5               percent        F5
+keysym 1                = 1               exclam         F1                twosuperior       exclamdown
+keysym 2                = 2               at             F2                threesuperior     at                dead_hook
+keysym 3                = 3               numbersign     F3                NoSymbol          sterling
+keysym 4                = 4               dollar         F4                NoSymbol          currency
+keysym 5                = 5               percent        F5                NoSymbol          permille
 keysym 6                = 6               asciicircum    F6
 keysym 7                = 7               ampersand      F7
-keysym 8                = 8               asterisk       F8
+keysym 8                = 8               asterisk       F8                NoSymbol          infinity
 keysym 9                = 9               parenleft      F9
 keysym 0                = 0               parenright     F10
-keysym minus            = minus           underscore     F11
-keysym equal            = equal           plus           F12
+keysym minus            = minus           underscore     F11               NoSymbol          plusminus
+keysym equal            = equal           plus           F12               NoSymbol          notequal
 
 keysym q                = q               Q
 keysym w                = w               W
-keysym e                = e               E              eacute            Eacute            EuroSign
-keysym r                = r               R
+keysym e                = e               E              EuroSign          NoSymbol          eacute            Eacute
+keysym r                = r               R              NoSymbol
 keysym t                = t               T
-keysym y                = y               Y              Home
-keysym u                = u               U              Prior
-keysym i                = i               I              Next
-keysym o                = o               O              End
+keysym y                = y               Y              Home              NoSymbol          yen
+keysym u                = u               U              Next
+keysym i                = i               I              Page_Up
+keysym o                = o               O              Page_Down         NoSymbol          dead_abovering
 keysym p                = p               P
-keysym bracketleft      = bracketleft     braceleft      aring             Aring             dead_abovering
+keysym bracketleft      = bracketleft     braceleft      aring             Aring             ae                AE
 keysym bracketright     = bracketright    braceright     Delete            Delete            dead_diaeresis    asciicircum
 
-keysym a                = a               A
-keysym s                = s               S
+keysym a                = a               A              NoSymbol          NoSymbol          aacute            Aacute
+keysym s                = s               S              Shift_Lock        NoSymbol          ssharp
 keysym d                = d               D
 keysym f                = f               F
 keysym g                = g               G
@@ -40,20 +39,20 @@ keysym h                = h               H              Left              NoSym
 keysym j                = j               J              Down              NoSymbol          Next
 keysym k                = k               K              Up                NoSymbol          Prior
 keysym l                = l               L              Right             NoSymbol          End
-keysym semicolon        = semicolon       colon          odiaeresis        Odiaeresis
+keysym semicolon        = semicolon       colon          odiaeresis        Odiaeresis        ooblique          Ooblique
 keysym apostrophe       = apostrophe      quotedbl       adiaeresis        Adiaeresis        dead_acute        dead_diaeresis
-keysym backslash        = backslash       bar            asterisk          NoSymbol
+keysym backslash        = backslash       bar            asterisk          NoSymbol          division
 
 keysym z                = z               Z
 keysym x                = x               X
-keysym c                = c               C
+keysym c                = c               C              NoSymbol          NoSymbol          copyright
 keysym v                = v               V
 keysym b                = b               B
 keysym n                = n               N
-keysym m                = m               M
-keysym comma            = comma           less
-keysym period           = period          greater
-keysym slash            = slash           question
+keysym m                = m               M              NoSymbol          NoSymbol          mu
+keysym comma            = comma           less           NoSymbol          NoSymbol          lessthanequal
+keysym period           = period          greater        NoSymbol          NoSymbol          greaterthanequal
+keysym slash            = slash           question       NoSymbol          NoSymbol          questiondown
 
 keysym space            = space           space          Return            Return            Return
 
