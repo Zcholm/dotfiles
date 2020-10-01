@@ -26,7 +26,7 @@ keysym y                = y               Y              Home              NoSym
 keysym u                = u               U              Next
 keysym i                = i               I              Page_Up
 keysym o                = o               O              Page_Down         NoSymbol          dead_abovering
-keysym p                = p               P
+keysym p                = p               P              Insert
 keysym bracketleft      = bracketleft     braceleft      aring             Aring             ae                AE
 keysym bracketright     = bracketright    braceright     Delete            Delete            dead_diaeresis    asciicircum
 
