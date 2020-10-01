@@ -1,2 +1,2 @@
-# windows_configs
-A repository for my windows configurations for easier syncronization between different installs.
+# Dotfiles
+A repository for my configurations for easier synchronization between different installs.
