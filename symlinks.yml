@@ -1,0 +1,27 @@
+symlinks:
+  - source: "xmodmap"
+    destinations:
+      - "~/.Xmodmap"
+  - source: "_vimrc"
+    destinations:
+      - "~/.vimrc"
+      - "/root/.vimrc"
+  - source: "vim/colors/gruvbox.vim"
+    destinations:
+      - "/usr/share/vim/vim81/colors/gruvbox.vim"
+  - source: "git/gitconfig"
+    destinations:
+      - "~/.gitconfig"
+  - source: "git/config_git/ignore"
+    destinations:
+      - "~/ignore"
+  - source: "tmux.conf"
+    destinations:
+      - "~/.tmux.conf"
+  - source: "bash_aliases"
+    destinations:
+      - "~/.bash_aliases"
+  - source: "scripts/x_screensaver.sh"
+    destinations:
+      - "/etc/profile.d/"
+
