@@ -24,4 +24,7 @@ symlinks:
   - source: "scripts/x_screensaver.sh"
     destinations:
       - "/etc/profile.d/"
+  - source: "xmod"
+    destinations:
+       - "/usr/bin/xmod"
 

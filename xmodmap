@@ -1,21 +1,29 @@
 ! Custom US layout for 60% keyboard with vim style navigation.
+! Keys are laid out from lefto to right, top to bottom.
+!
+! Notes:
+! AltGr + Escape seems to work badly, at least in vim, so don't use it.
+! The philosophy is to have a somewhat Swedish layout when using Caps
+!
 ! ©Simon Holm 2020
+!
+! CapsLock = modifier:
 keycode 66 = Mode_switch
 
 !      Key:               key:            Shift+key:     Caps+key:         Shift+Caps+key:   AltGr+key:        Shift+AltGr+key:
-keysym grave            = Escape          asciitilde     grave             bar               dead_tilde        section
-keysym 1                = 1               exclam         F1                twosuperior       exclamdown
-keysym 2                = 2               at             F2                threesuperior     at                dead_hook
-keysym 3                = 3               numbersign     F3                NoSymbol          sterling
-keysym 4                = 4               dollar         F4                NoSymbol          currency
-keysym 5                = 5               percent        F5                NoSymbol          permille
-keysym 6                = 6               asciicircum    F6
-keysym 7                = 7               ampersand      F7
-keysym 8                = 8               asterisk       F8                NoSymbol          infinity
-keysym 9                = 9               parenleft      F9
-keysym 0                = 0               parenright     F10
+keysym Escape           = Escape          asciitilde     grave             section           NoSymbol          dead_tilde
+keysym 1                = 1               exclam         F1                onesuperior       exclamdown
+keysym 2                = 2               at             F2                twosuperior       at                dead_hook
+keysym 3                = 3               numbersign     F3                threesuperior     sterling
+keysym 4                = 4               dollar         F4                foursuperior      currency
+keysym 5                = 5               percent        F5                fivesuperior      permille
+keysym 6                = 6               asciicircum    F6                sixsuperior
+keysym 7                = 7               ampersand      F7                sevensuperior
+keysym 8                = 8               asterisk       F8                eightsuperior     infinity
+keysym 9                = 9               parenleft      F9                ninesuperior
+keysym 0                = 0               parenright     F10               zerosuperior
 keysym minus            = minus           underscore     F11               NoSymbol          plusminus
-keysym equal            = equal           plus           F12               NoSymbol          notequal
+keysym equal            = equal           plus           F12               NoSymbol          notequal          grave
 
 keysym q                = q               Q
 keysym w                = w               W
@@ -50,9 +58,9 @@ keysym v                = v               V
 keysym b                = b               B
 keysym n                = n               N
 keysym m                = m               M              NoSymbol          NoSymbol          mu
-keysym comma            = comma           less           NoSymbol          NoSymbol          lessthanequal
-keysym period           = period          greater        NoSymbol          NoSymbol          greaterthanequal
-keysym slash            = slash           question       NoSymbol          NoSymbol          questiondown
+keysym comma            = comma           less           semicolon         NoSymbol          lessthanequal
+keysym period           = period          greater        colon             NoSymbol          greaterthanequal
+keysym slash            = slash           question       minus             NoSymbol          questiondown
 
 keysym space            = space           space          Return            Return            Return
 
