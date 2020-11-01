@@ -5,7 +5,7 @@
 :colorscheme gruvbox
 let g:gruvbox_contrast_dark= '(medium)'
 :set background=dark
-:set guifont=Consolas\ 11
+:set guifont=Consolas\ 10
 
 " Window settings
 :set number ruler

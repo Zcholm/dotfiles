@@ -39,7 +39,7 @@ keysym bracketleft      = bracketleft     braceleft      aring             Aring
 keysym bracketright     = bracketright    braceright     Delete            Delete            dead_diaeresis    asciicircum
 
 keysym a                = a               A              NoSymbol          NoSymbol          aacute            Aacute
-keysym s                = s               S              Shift_Lock        NoSymbol          ssharp
+keysym s                = s               S              ssharp            NoSymbol          ssharp
 keysym d                = d               D
 keysym f                = f               F
 keysym g                = g               G
