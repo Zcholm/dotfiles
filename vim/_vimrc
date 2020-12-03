@@ -11,6 +11,17 @@ let g:gruvbox_contrast_dark= '(medium)'
 :set number ruler
 :set colorcolumn=80
 
+" Pane resizing using arrows:
+nnoremap <silent> <Up>    :call animate#window_delta_height(-5)<CR>
+nnoremap <silent> <Down>  :call animate#window_delta_height(5)<CR>
+nnoremap <silent> <Left>  :call animate#window_delta_width(-5)<CR>
+nnoremap <silent> <Right> :call animate#window_delta_width(5)<CR>
+
+" Maximize window in gVim:
+if has("gui_running")
+   :set lines=1000 columns=1000
+endif
+
 " Syntax
 :syntax on
 
@@ -26,9 +37,18 @@ filetype plugin indent on
 ":hi Comment term=NONE
 
 " Save file using specified line endings:
-:command Savedos :w ++ff=dos
-:command Savemac :w ++ff=mac
-:command Saveunix :w ++ff=unix
+:command Sd silent! %s/\s\+$// | w ++ff=dos
+:command Sm silent! %s/\s\+$// | w ++ff=mac
+:command Su silent! %s/\s\+$// | w ++ff=unix
+
+" Custom save command
+" silent!: Suppress output of following command
+" %s/\s\+$//: find and replace any trailing whitespaces
+" |: perform another command
+" w: save
+:command W silent! %s/\s\+$// | w
+:command Wq silent! %s/\s\+$// | wq
+:command WQ Wq
 
 " Turn off wrap-around searches (makes recursive macros safer):
 :set nowrapscan
@@ -36,7 +56,28 @@ filetype plugin indent on
 " Terminal colors:
 ":set termguicolors
 
-" Trailing spaces:
+" Highlight trailing whitespace:
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
+
+
+" Install vim-plug if not found:
+if empty(glob('~/.vim/autoload/plug.vim'))
+   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+   autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source ~/.vimrc
+\| endif
+
+" Load plugins:
+call plug#begin()
+Plug 'camspiers/animate.vim'
+if !&diff
+   Plug 'camspiers/lens.vim'
+endif
+call plug#end()
 

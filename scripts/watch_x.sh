@@ -10,7 +10,7 @@ on_screensaver_off () {
 }
 
 on_screensaver_on () {
-   echo "Placeholder for screensaver on"
+   echo "Placeholder for screensaver on" >> /dev/null
 }
 
 

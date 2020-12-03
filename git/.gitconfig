@@ -1,5 +1,5 @@
 [user]
-	name = rtlsiho
+	name = Simon Holm
 	email = simon.holm@rt-labs.com
 [pull]
    rebase = true
@@ -7,12 +7,27 @@
    amend-all = commit -a --amend --no-edit
    gerritpull = "!f() { git fetch origin \"$1\" && git rebase --onto FETCH_HEAD origin/master; }; f"
    sl = log --oneline
-   graph = log --oneline --branches=* --graph origin/master~2..
+   graph = log --oneline --branches=* --graph origin/master~7..
    show-commit = show --stat --abbrev-commit
    staged-diff = diff --cached
    commit-diff = diff HEAD~..HEAD
    unstage = restore --staged
+   vdiff = difftool --tool=vimdiff --no-prompt
+   gvdiff = difftool --tool=gvimdiff --no-prompt
 [core]
    excludesfile = ~/ignore
    editor = vim -f
 
+[cola]
+	spellcheck = false
+	textwidth = 80
+	fontdiff = Consolas,10,-1,5,50,0,0,0,0,0
+	blameviewer = git gui blame
+	theme = flat-dark-grey
+[gui]
+	editor = gvim
+	historybrowser = gitk
+[diff]
+	tool = gvimdiff
+[merge]
+	tool = gvimdiff

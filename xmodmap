@@ -26,23 +26,23 @@ keysym minus            = minus           underscore     F11               NoSym
 keysym equal            = equal           plus           F12               NoSymbol          notequal          grave
 
 keysym q                = q               Q
-keysym w                = w               W
+keysym w                = w               W              NoSymbol          NoSymbol          Greek_omega             Greek_OMEGA
 keysym e                = e               E              EuroSign          NoSymbol          eacute            Eacute
 keysym r                = r               R              NoSymbol
 keysym t                = t               T
 keysym y                = y               Y              Home              NoSymbol          yen
-keysym u                = u               U              Page_Down
+keysym u                = u               U              Page_Down         NoSymbol          udiaeresis        Udiaeresis
 keysym i                = i               I              Page_Up
-keysym o                = o               O              End               NoSymbol          dead_abovering
+keysym o                = o               O              End               degree            dead_abovering
 keysym p                = p               P              Insert            Insert
 keysym bracketleft      = bracketleft     braceleft      aring             Aring             ae                AE
 keysym bracketright     = bracketright    braceright     Delete            Delete            dead_diaeresis    asciicircum
 
-keysym a                = a               A              NoSymbol          NoSymbol          aacute            Aacute
+keysym a                = a               A              Greek_alpha       Greek_ALPHA       aacute            Aacute
 keysym s                = s               S              ssharp            NoSymbol          ssharp
-keysym d                = d               D
+keysym d                = d               D              NoSymbol          NoSymbol          Greek_delta       Greek_DELTA
 keysym f                = f               F
-keysym g                = g               G
+keysym g                = g               G              NoSymbol          NoSymbol          Greek_gamma       Greek_GAMMA
 keysym h                = h               H              Left              NoSymbol          Home
 keysym j                = j               J              Down              NoSymbol          Page_Down
 keysym k                = k               K              Up                NoSymbol          Page_Up
@@ -53,13 +53,13 @@ keysym backslash        = backslash       bar            asterisk          NoSym
 
 keysym z                = z               Z
 keysym x                = x               X
-keysym c                = c               C              NoSymbol          NoSymbol          copyright
-keysym v                = v               V
+keysym c                = c               C              XF86Copy          NoSymbol          copyright
+keysym v                = v               V              XF86Paste
 keysym b                = b               B
 keysym n                = n               N
 keysym m                = m               M              NoSymbol          NoSymbol          mu
-keysym comma            = comma           less           semicolon         NoSymbol          lessthanequal
-keysym period           = period          greater        colon             NoSymbol          greaterthanequal
+keysym comma            = comma           less           semicolon         NoSymbol          lessthanequal     guillemotleft
+keysym period           = period          greater        colon             NoSymbol          greaterthanequal  guillemotright
 keysym slash            = slash           question       minus             NoSymbol          questiondown
 
 keysym space            = space           space          Return            Return            Return
