@@ -17,4 +17,5 @@ alias sv='sudo vim'
 alias gl='git log --oneline'
 alias gvdf='git vdiff'
 alias ggvdf='git gvdiff'
+alias :q=exit
 

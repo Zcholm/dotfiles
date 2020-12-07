@@ -10,16 +10,17 @@ let g:gruvbox_contrast_dark= '(medium)'
 " Window settings
 :set number ruler
 :set colorcolumn=80
+:set wrap!
 
 " Pane resizing using arrows:
-nnoremap <silent> <Up>    :call animate#window_delta_height(-5)<CR>
-nnoremap <silent> <Down>  :call animate#window_delta_height(5)<CR>
-nnoremap <silent> <Left>  :call animate#window_delta_width(-5)<CR>
-nnoremap <silent> <Right> :call animate#window_delta_width(5)<CR>
+nnoremap <silent> <Up>    :call animate#window_delta_height(-10)<CR>
+nnoremap <silent> <Down>  :call animate#window_delta_height(10)<CR>
+nnoremap <silent> <Left>  :call animate#window_delta_width(-10)<CR>
+nnoremap <silent> <Right> :call animate#window_delta_width(10)<CR>
 
 " Maximize window in gVim:
 if has("gui_running")
-   :set lines=1000 columns=1000
+   :set lines=80 columns=1000
 endif
 
 " Syntax
@@ -50,32 +51,52 @@ filetype plugin indent on
 :command Wq silent! %s/\s\+$// | wq
 :command WQ Wq
 
+" Open this file:
+:command V sp | e $MYVIMRC
+:command S source $MYVIMRC
+
+" Search settings:
+:set incsearch
+:set hlsearch
+:set ignorecase
 " Turn off wrap-around searches (makes recursive macros safer):
 :set nowrapscan
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Terminal colors:
 ":set termguicolors
 
 " Highlight trailing whitespace:
 :highlight ExtraWhitespace ctermbg=red guibg=red
-:match ExtraWhitespace /\s\+$/
 
+" Make sure highlights are loaded with each window:
+" source: https://vi.stackexchange.com/questions/7292/highlighting-with-match-\
+" does-not-appear-in-all-buffers
+augroup custom_highlighting
+    autocmd!
+    autocmd VimEnter,WinEnter * match ExtraWhitespace /\s\+$/
+augroup END
+
+" fugitive options:
+set diffopt+=vertical
 
 " Install vim-plug if not found:
 if empty(glob('~/.vim/autoload/plug.vim'))
    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-   autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source ~/.vimrc
+  \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
 " Load plugins:
 call plug#begin()
 Plug 'camspiers/animate.vim'
+"Plug 'tpope/vim-fugitive.vim'
 if !&diff
    Plug 'camspiers/lens.vim'
 endif
