@@ -10,7 +10,7 @@ let g:gruvbox_contrast_dark= '(medium)'
 " Window settings
 :set number ruler
 :set colorcolumn=80
-:set wrap!
+:set cursorline
 
 " Pane resizing using arrows:
 nnoremap <silent> <Up>    :call animate#window_delta_height(-10)<CR>
@@ -53,6 +53,7 @@ filetype plugin indent on
 
 " Open this file:
 :command V sp | e $MYVIMRC
+" Apply this file:
 :command S source $MYVIMRC
 
 " Search settings:
@@ -76,6 +77,7 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 augroup custom_highlighting
     autocmd!
     autocmd VimEnter,WinEnter * match ExtraWhitespace /\s\+$/
+    autocmd VimEnter,WinEnter * set nowrap
 augroup END
 
 " fugitive options:
