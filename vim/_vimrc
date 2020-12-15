@@ -51,6 +51,23 @@ filetype plugin indent on
 :command Wq silent! %s/\s\+$// | wq
 :command WQ Wq
 
+" Some useful macros I don't want overwritten:
+" Automatically fold all top level braces:
+let @f='/^{$V%zf@f'
+" Autofill numbers. By default fills 0, 1, 2 etc. Change start value i and
+" formula in @i on the fly for custom fills. Replaces any occurences of
+" the character 'α' from cursor and down.
+let @n='/αs=i@i@n'
+let i=0 "default start value for autofill
+let j=1 "default increment for autofill
+let @i=':let i+=j' "default formula for autofill
+" Add braces to oneliner:
+let @b='I{o}'
+" Evaluate line with equation sign:
+let @e='0t=v0yf=a ="'
+" Evaluate and replace marked expression:
+let @r='da="'
+
 " Open this file:
 :command V sp | e $MYVIMRC
 " Apply this file:
@@ -103,4 +120,33 @@ if !&diff
    Plug 'camspiers/lens.vim'
 endif
 call plug#end()
+
+" Get powers as ints:
+function Pow(base, pow)
+  return float2nr(pow(a:base, a:pow))
+endfunction
+
+" binary left shift:
+function Lsh(v, sh)
+   let k = 0
+   let val = a:v
+   while k < a:sh
+      let val *= 2
+      let k += 1
+   endw
+   return val
+endfunction
+
+" binary right shift:
+function Rsh(v, sh)
+   let k = 0
+   let val = a:v
+   while k < a:sh
+      let val /= 2
+      let val = float2nr(val)
+      echo val
+      let k += 1
+   endw
+   return val
+endfunction
 
