@@ -15,6 +15,7 @@ alias gg='git graph'
 alias gp='git pull'
 alias sv='sudo vim'
 alias gl='git log --oneline'
+alias gdf='git diff'
 alias gvdf='git vdiff'
 alias ggvdf='git gvdiff'
 alias :q=exit
