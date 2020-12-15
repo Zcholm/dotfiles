@@ -144,7 +144,6 @@ function Rsh(v, sh)
    while k < a:sh
       let val /= 2
       let val = float2nr(val)
-      echo val
       let k += 1
    endw
    return val
