@@ -57,7 +57,10 @@ let @f='/^{$V%zf@f'
 " Autofill numbers. By default fills 0, 1, 2 etc. Change start value i and
 " formula in @i on the fly for custom fills. Replaces any occurences of
 " the character 'α' from cursor and down.
+" Decimal:
 let @n='/αs=i@i@n'
+" Hexadecimal:
+let @h='/αs=printf("0x%02X", i)@i@h'
 let i=0 "default start value for autofill
 let j=1 "default increment for autofill
 let @i=':let i+=j' "default formula for autofill
@@ -66,7 +69,7 @@ let @b='I{o}'
 " Evaluate line with equation sign:
 let @e='0t=v0yf=a ="'
 " Evaluate and replace marked expression:
-let @r='da="'
+let @r='s="'
 
 " Open this file:
 :command V sp | e $MYVIMRC
