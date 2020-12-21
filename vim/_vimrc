@@ -177,7 +177,16 @@ function Bin(n)
    let c = ''
    while val > 0
       let c = string(val % 2) . c
+      if ((len (c) + 1) % 5 == 0) && (val > 0)
+         let c = ' '. c
+      endif
       let val = Rsh(val, 1)
+   endwhile
+   if c[0] == ' '
+      let c = c[1:]
+   endif
+   while (len(c) + 1) % 5 != 0
+      let c = '0' . c
    endwhile
    return c
 endfunction
