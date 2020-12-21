@@ -51,25 +51,36 @@ filetype plugin indent on
 :command Wq silent! %s/\s\+$// | wq
 :command WQ Wq
 
+
 " Some useful macros I don't want overwritten:
 " Automatically fold all top level braces:
 let @f='/^{$V%zf@f'
+
 " Autofill numbers. By default fills 0, 1, 2 etc. Change start value i and
 " formula in @i on the fly for custom fills. Replaces any occurences of
-" the character 'α' from cursor and down.
+" the character 'α' from cursor and down. This can be changed by just
+" replacing the single character 'α' in the macros below to anything else
 " Decimal:
 let @n='/αs=i@i@n'
 " Hexadecimal:
 let @h='/αs=printf("0x%02X", i)@i@h'
 let i=0 "default start value for autofill
 let j=1 "default increment for autofill
-let @i=':let i+=j' "default formula for autofill
+
+" by default increment by j. This macro can be changed on the fly for othe
+" autofill formulas to apply:
+let @i=':let i+=j' "default formula for autofill. Change i macro if you want
+
 " Add braces to oneliner:
 let @b='I{o}'
-" Evaluate line with equation sign:
-let @e='0t=v0yf=a ="'
-" Evaluate and replace marked expression:
+
+" Evaluate an expression and append the answer after the equal sign.
+" Will evaluate selection from cursor up to '=' and append answer after '='.
+let @e='vt=yf=a ="'
+
+" Evaluate marked expression and replace it with answer:
 let @r='s="'
+
 
 " Open this file:
 :command V sp | e $MYVIMRC
@@ -82,6 +93,8 @@ let @r='s="'
 :set ignorecase
 " Turn off wrap-around searches (makes recursive macros safer):
 :set nowrapscan
+
+
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
@@ -97,11 +110,14 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 augroup custom_highlighting
     autocmd!
     autocmd VimEnter,WinEnter * match ExtraWhitespace /\s\+$/
+    " Some trial-and-error with wrapping:
     autocmd VimEnter,WinEnter * set nowrap
 augroup END
 
+
 " fugitive options:
 set diffopt+=vertical
+
 
 " Install vim-plug if not found:
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -119,11 +135,14 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 Plug 'camspiers/animate.vim'
 "Plug 'tpope/vim-fugitive.vim'
+Plug 'will133/vim-dirdiff'
 if !&diff
    Plug 'camspiers/lens.vim'
 endif
 call plug#end()
 
+
+" Custom functions:
 " Get powers as ints:
 function Pow(base, pow)
   return float2nr(pow(a:base, a:pow))
@@ -150,5 +169,26 @@ function Rsh(v, sh)
       let k += 1
    endw
    return val
+endfunction
+
+" convert number to binary:
+function Bin(n)
+   let val = a:n
+   let c = ''
+   while val > 0
+      let c = string(val % 2) . c
+      let val = Rsh(val, 1)
+   endwhile
+   return c
+endfunction
+
+" Convert to hex:
+function Hex(n)
+   return printf("0x%X", a:n)
+endfunction
+
+" Convert to dec:
+function Dec(n)
+   return printf("%d", a:n)
 endfunction
 
