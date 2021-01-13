@@ -11,6 +11,8 @@ let g:gruvbox_contrast_dark= '(medium)'
 :set number ruler
 :set colorcolumn=80
 :set cursorline
+:set wildmenu
+:set wildmode=full
 
 " Pane resizing using arrows:
 nnoremap <silent> <Up>    :call animate#window_delta_height(-10)<CR>
@@ -26,6 +28,9 @@ endif
 " Syntax
 :syntax on
 
+" Foldmethod
+set foldmethod=manual
+
 " ctags tags file:
 set tags=tags;/
 
@@ -36,6 +41,9 @@ filetype plugin indent on
 " No italic on comments:
 :hi Comment gui=NONE
 ":hi Comment term=NONE
+
+" No beep:
+:set visualbell
 
 " Save file using specified line endings:
 :command Sd silent! %s/\s\+$// | w ++ff=dos
@@ -51,10 +59,9 @@ filetype plugin indent on
 :command Wq silent! %s/\s\+$// | wq
 :command WQ Wq
 
-
 " Some useful macros I don't want overwritten:
 " Automatically fold all top level braces:
-let @f='/^{$V%zf@f'
+let @f='/^{$zf%@f'
 
 " Autofill numbers. By default fills 0, 1, 2 etc. Change start value i and
 " formula in @i on the fly for custom fills. Replaces any occurences of
@@ -175,6 +182,7 @@ endfunction
 function Bin(n)
    let val = a:n
    let c = ''
+
    while val > 0
       let c = string(val % 2) . c
       if ((len (c) + 1) % 5 == 0) && (val > 0)
@@ -182,9 +190,13 @@ function Bin(n)
       endif
       let val = Rsh(val, 1)
    endwhile
+
+   " Strip leading spaces:
    if c[0] == ' '
       let c = c[1:]
    endif
+
+   " Add leading zeros:
    while (len(c) + 1) % 5 != 0
       let c = '0' . c
    endwhile
@@ -201,3 +213,23 @@ function Dec(n)
    return printf("%d", a:n)
 endfunction
 
+" Convert binary to hex:
+function Bin2Num(string)
+   let bit = 0
+   let idx = len(a:string) - 1
+   let num = 0
+   while idx >= 0
+      let bs = a:string[idx]
+      if bs == '1'
+         let num = num + Pow(2, bit)
+         let bit = bit + 1
+      elseif bs == '0'
+         let bit = bit + 1
+      elseif bs != ' '
+         echo "Not a binary string"
+         return -1
+      endif
+         let idx = idx - 1
+   endwhile
+   return num
+endfunction

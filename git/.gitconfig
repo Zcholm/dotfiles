@@ -11,6 +11,7 @@
    show-commit = show --stat --abbrev-commit
    staged-diff = diff --cached
    commit-diff = diff HEAD~..HEAD
+   file-added = log --diff-filter=A --
    unstage = restore --staged
    vdiff = difftool --tool=vimdiff --no-prompt
    gvdiff = difftool --tool=gvimdiff --no-prompt
@@ -31,3 +32,5 @@
 	tool = gvimdiff
 [merge]
 	tool = gvimdiff
+[init]
+	templatedir = ~/.git-templates

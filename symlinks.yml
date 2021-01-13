@@ -43,3 +43,6 @@ symlinks:
   - source: ".bash_aliases"
     destinations:
        "~/.bash_aliases"
+  - source: ".git/.git-templates"
+    destinations:
+       "~/.git-templates"
