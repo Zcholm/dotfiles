@@ -7,7 +7,7 @@
    amend-all = commit -a --amend --no-edit
    gerritpull = "!f() { git fetch origin \"$1\" && git rebase --onto FETCH_HEAD origin/master; }; f"
    sl = log --oneline
-   graph = log --oneline --branches=* --graph origin/master~7..
+   graph = log --oneline --branches=* --graph origin/master~10..
    show-commit = show --stat --abbrev-commit
    staged-diff = diff --cached
    commit-diff = diff HEAD~..HEAD

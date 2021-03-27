@@ -14,11 +14,22 @@ let g:gruvbox_contrast_dark= '(medium)'
 :set wildmenu
 :set wildmode=full
 
+" Swapfiles are a pain in the ass:
+:set noswapfile
+
+" ` as <C-w>:
+map ` <C-w>
+
 " Pane resizing using arrows:
-nnoremap <silent> <Up>    :call animate#window_delta_height(-10)<CR>
-nnoremap <silent> <Down>  :call animate#window_delta_height(10)<CR>
+nnoremap <silent> <Up>    :call animate#window_delta_height(10)<CR>
+nnoremap <silent> <Down>  :call animate#window_delta_height(-10)<CR>
 nnoremap <silent> <Left>  :call animate#window_delta_width(-10)<CR>
 nnoremap <silent> <Right> :call animate#window_delta_width(10)<CR>
+" Pane fine resizing using Ctrl-arrows:
+nnoremap <silent> <C-Up>    :call animate#window_delta_height(1)<CR>
+nnoremap <silent> <C-Down>  :call animate#window_delta_height(-1)<CR>
+nnoremap <silent> <C-Left>  :call animate#window_delta_width(-1)<CR>
+nnoremap <silent> <C-Right> :call animate#window_delta_width(1)<CR>
 
 " Maximize window in gVim:
 if has("gui_running")
@@ -49,6 +60,9 @@ filetype plugin indent on
 :command Sd silent! %s/\s\+$// | w ++ff=dos
 :command Sm silent! %s/\s\+$// | w ++ff=mac
 :command Su silent! %s/\s\+$// | w ++ff=unix
+
+" Gdf is for Gdiff:
+:command Gdf Gdiff | gg | zr
 
 " Custom save command
 " silent!: Suppress output of following command
@@ -110,6 +124,7 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Highlight trailing whitespace:
 :highlight ExtraWhitespace ctermbg=red guibg=red
+" :highlight NoSpaceParenthesis ctermbg=red guibg=red
 
 " Make sure highlights are loaded with each window:
 " source: https://vi.stackexchange.com/questions/7292/highlighting-with-match-\
@@ -117,6 +132,7 @@ nnoremap <silent> <C-l> :nohl<CR><C-l>
 augroup custom_highlighting
     autocmd!
     autocmd VimEnter,WinEnter * match ExtraWhitespace /\s\+$/
+    " autocmd VimEnter,WinEnter * match NoSpaceParenthesis /\[a-z\]\+(/
     " Some trial-and-error with wrapping:
     autocmd VimEnter,WinEnter * set nowrap
 augroup END
